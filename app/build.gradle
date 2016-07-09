@@ -22,5 +22,5 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:24.0.0'
-    compile project(':multi-image-selector')
+    compile 'com.github.eicky:MultiImageSelector:v1.0'
 }
