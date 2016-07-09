@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -86,10 +86,15 @@ public class FolderAdapter extends BaseAdapter {
                 if(mFolders.size()>0){
                     Folder f = mFolders.get(0);
                     if (f != null) {
-                        Picasso.with(mContext)
+                        //Picasso.with(mContext)
+                        //        .load(new File(f.cover.path))
+                        //        .error(R.drawable.mis_default_error)
+                        //        .resizeDimen(R.dimen.mis_folder_cover_size, R.dimen.mis_folder_cover_size)
+                        //        .centerCrop()
+                        //        .into(holder.cover);
+                        Glide.with(mContext)
                                 .load(new File(f.cover.path))
                                 .error(R.drawable.mis_default_error)
-                                .resizeDimen(R.dimen.mis_folder_cover_size, R.dimen.mis_folder_cover_size)
                                 .centerCrop()
                                 .into(holder.cover);
                     }else{
@@ -156,11 +161,17 @@ public class FolderAdapter extends BaseAdapter {
                 size.setText("*"+mContext.getResources().getString(R.string.mis_photo_unit));
             }
             if (data.cover != null) {
+                //// 显示图片
+                //Picasso.with(mContext)
+                //        .load(new File(data.cover.path))
+                //        .placeholder(R.drawable.mis_default_error)
+                //        .resizeDimen(R.dimen.mis_folder_cover_size, R.dimen.mis_folder_cover_size)
+                //        .centerCrop()
+                //        .into(cover);
                 // 显示图片
-                Picasso.with(mContext)
+                Glide.with(mContext)
                         .load(new File(data.cover.path))
                         .placeholder(R.drawable.mis_default_error)
-                        .resizeDimen(R.dimen.mis_folder_cover_size, R.dimen.mis_folder_cover_size)
                         .centerCrop()
                         .into(cover);
             }else{

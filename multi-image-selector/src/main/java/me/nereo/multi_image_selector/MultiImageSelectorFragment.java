@@ -28,13 +28,10 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -170,21 +167,23 @@ public class MultiImageSelectorFragment extends Fragment {
                 }
             }
         });
-        mGridView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                if (scrollState == SCROLL_STATE_FLING) {
-                    Picasso.with(view.getContext()).pauseTag(TAG);
-                } else {
-                    Picasso.with(view.getContext()).resumeTag(TAG);
-                }
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
-            }
-        });
+        //mGridView.setOnScrollListener(new AbsListView.OnScrollListener() {
+        //    @Override
+        //    public void onScrollStateChanged(AbsListView view, int scrollState) {
+        //        if (scrollState == SCROLL_STATE_FLING) {
+        //            //Picasso.with(view.getContext()).pauseTag(TAG);
+        //            Glide.with(view.getContext()).pauseRequests();
+        //        } else {
+        //            //Picasso.with(view.getContext()).resumeTag(TAG);
+        //            Glide.with(view.getContext()).resumeRequests();
+        //        }
+        //    }
+        //
+        //    @Override
+        //    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        //
+        //    }
+        //});
 
         mFolderAdapter = new FolderAdapter(getActivity());
     }
